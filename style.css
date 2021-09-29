@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+main{
+    margin: 0 auto;
+    width: 1250px;
+    position: relative;
+}
+
+a {
+    color: #fff;
+    transition: 0.3s;
+}
+
+b {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.8;
+    text-shadow: 2px 2px 5px black;
+}
+
+.head {
+    justify-content: space-between;
+    display: flex;
+}
+
+.nav-list {
+    width: 950px;
+    height: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+    display: flex;
+    list-style: none;
+    position: relative;
+    
+}
+.nav-list li {
+    letter-spacing: 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+}
+
+.header-container{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(199,33,66,1) 0%, rgba(119,105,142,1) 50%, rgba(28,91,134,1) 100%);
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Agency fb;
+    height: 10vh;
+}
+
+body {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+
+.d-inline{
+    margin: 5% 0;
+}
+.middle{
+    margin: 0px 50px 0px 50px;
+}
+
+.prompcao-e-mapa{
+    margin: 0 auto;
+    width: 1010px;
+    position: relative;
+}
+
+.promocao2{
+    margin-top: 30px;   
+}
+.bv{
+    margin: 0px 20px 0px 0px;
+}
