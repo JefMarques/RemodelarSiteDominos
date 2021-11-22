@@ -26,6 +26,7 @@ a:hover {
 .head {
     justify-content: space-between;
     display: flex;
+    box-shadow: 0px 0 0 0 #000, 0px 0 0 0 #000;
 }
 
 .nav-list {
@@ -51,6 +52,7 @@ a:hover {
     display: flex;
     flex: 1;
     justify-content: center;
+    box-shadow: 0px 0 10px 0 #000, 0px 0 0 0 #000;
 }
 
 nav {
@@ -90,3 +92,162 @@ body {
 .bv{
     margin: 0px 20px 0px 0px;
 }
+
+.img-cardapio{
+    text-transform: uppercase;
+}
+
+.itens-card{
+    margin-left: 85px;
+}
+
+.itens-card li{
+    margin-top: 50px;
+    display: inline-block;
+    vertical-align: top;
+    width: 30%    
+}
+
+.itens-card li a{
+    text-decoration: none;
+}
+
+.img-cardapio img{
+    border-radius: 10px;
+}
+
+.pizza{
+    width: 300px;
+    color: white;
+    text-align: center;
+    margin: -38px 00px 0px 0px;
+    box-shadow: 0px 0 0 0 #000, 0px 0 0 0 #000;
+	background: rgba(28,91,134,1);
+	padding: 4px 0 !important;
+	position: relative;
+    border-radius: 5px 5px 10px 10px;
+    
+}
+
+.img-cardapio h4 {
+    color: rgba(199,33,66,1);
+    margin: 1px 0px 0px 0px;
+}
+
+.img-cardapio p{
+    font-weight: bold;
+    color: #fff;
+}
+
+.conteudo-formulario, .login{
+    position: relative;
+    width: 940px;
+    margin:  0 auto;
+    color: white;
+}
+
+form{
+    margin: 40px 0px;
+}
+
+form label, form legend, span {
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+
+.input-padrao {
+    display: block;
+    margin: 0 0 20px;
+    padding: 10px 25px;
+    width: 50%;
+    border-radius: 8px;
+}
+
+.checkbox{
+    margin: 20px 0;
+}
+
+.enviar, .register{
+    width: 40%;
+    padding: 15px 0;
+    background-color: rgba(28,91,134,1);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    transition: 1s all;
+    cursor: pointer;
+}
+
+.enviar:hover, .register:hover{
+    background-color: rgba(199,33,66,1);
+    transform: scale(1.1);
+}
+
+main.login{
+    color: white;
+}
+
+main.login h1{
+    margin: 30px 100px;
+}
+
+.social-midia img{
+    width: 36px;
+    margin-left: 131px;
+}
+
+.or{
+    text-align: center;
+    width: 32%;
+    margin-top: 1rem;
+}
+
+.or span {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.3);
+    position: relative;
+    margin-left: 156px;
+    
+}
+
+.or span::before, .or span::after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 170px;
+    bottom: 50%;
+    right: -120px;
+    background: rgba(255, 255, 255, 0.3);
+    
+}
+
+.or span::after {
+    left: -120px;
+}
+
+main .social-media a:first-child img {
+    margin-left: 0;
+}
+
+.register{
+    margin-top: 10px;
+    margin-left: 5%;
+}
+
+.barra{
+    text-align: center;
+}
+
+.barra span::after{
+    position: absolute;
+    content: '';
+    height: 460px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    margin-left: 80px;
+}
+
