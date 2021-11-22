@@ -1,3 +1,10 @@
+<?php 
+
+    include('protect.php');
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -40,52 +47,11 @@
   
     </header>
 
-    <main class="login">
+    Bem vindo ao Painel, <?php echo $_SESSION['nome']; ?>
 
-        <h1>Crie sua Conta</h1>
-        <div class="social-midia">
-            <a href="#">
-                <img src="SRC/IMG/facebook.png" alt="Facebook" title="Facebook"/></a>
-
-            <a href="#">
-                <img src="SRC/IMG/google.png" alt="google" title="Google" /></a>
-        </div>
-
-        <div class="or">
-            <span>OR</span>
-        </div>
-
-        <div class="barra">
-            <span></span>
-        </div>
-
-        <form>
-
-            <label for="nome">
-                <span>Nome</span>
-                <input type="text" class="input-padrao" id="nome" name="nome" placeholder=" Nome">
-            </label>
-
-            <label for="email">
-                <span>E-mail</span>
-                <input type="email" class="input-padrao" id="email" name="email" placeholder=" Seuemail@gmail.com">
-            </label>
-
-            <label for="password">
-                <span>Senha</span>
-                <input type="password" class="input-padrao" id="password" name="password" placeholder=" Senha">
-            </label>
-
-            <input class="register" type="submit" value="Login">
-
-        </form>
-
-        
-
-    </main>
+    <p>
+        <a href="logout.php">Sair</a>
+    </p>
     
-
-    
-
 </body>
 </html>

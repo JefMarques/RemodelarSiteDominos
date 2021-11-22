@@ -190,8 +190,9 @@ main.login{
     color: white;
 }
 
-main.login h1{
-    margin: 30px 100px;
+.login h1{
+    margin: 50px 100px;
+    padding-left: 2rem;
 }
 
 .social-midia img{
