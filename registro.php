@@ -1,6 +1,28 @@
 <?php 
 include('conexao.php');
 
+if(isset($_POST['nome']) || isse($_POST['telefone']) || isset($_POST['email']) || isset($_POST['senha'])) {
+    if(strlen($_POST['nome']) == 0) {
+        echo "Preencha seu nome";
+    } else if(strlen($_POST['telefone']) == 0){
+        echo "Preencha seu telefone";
+    } else if(strlen($_POST['email']) == 0){
+        echo "Preencha seu email"; 
+    } else if(strlen($_POST['senha']) == 0){
+        echo "Preencha seu senha";
+    } else {
+
+        $nome = $mysqli->real_escape_string($_POST['nome']);
+        $telefone = $mysqli->real_escape_string($_POST['telefone']);
+        $email = $mysqli->real_escape_string($_POST['email']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
+
+        $sql_code = "SELECT * FROM usuarios WHERE nome='$nome' AND telefone='$telefone' AND email='$email' AND senha='$senha' ";
+        $sql_query = $mysqli->query($sql_code) or die ("Falha na execução do código SQL: " . $mysqli->error);
+
+        $quantidade = $sql_query->fetch_assoc();
+
+    }
 ?>
 
 
@@ -68,12 +90,20 @@ include('conexao.php');
         <form action="" method="POST">
             <p>
                 <label>E-Mail</label>
+                    <input type="text" class="input-padrao" id="nome" name="nome">
+            </p>
+            <p>
+                <label>Telefone</label>
+                    <input type="password" class="input-padrao" id="telefone" name="telefone">
+                </label>
+            </p>
+            <p>
+                <label>E-Mail</label>
                     <input type="text" class="input-padrao" id="email" name="email">
             </p>
             <p>
                 <label>Senha</label>
-                    <input type="password" class="input-padrao" id="password" name="senha">
-                </label>
+                    <input type="text" class="input-padrao" id="password" name="senha">
             </p>
             <p>
                 <button type="submit">Entrar</button>
