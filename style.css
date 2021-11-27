@@ -18,7 +18,7 @@ b {
     text-decoration: none;
 }
 
-a:hover {
+header a:hover {
     opacity: 0.8;
     text-shadow: 2px 2px 5px black;
 }
@@ -72,6 +72,10 @@ body {
     height: 100%;
 }
 
+.carousel-item img {
+    border-radius: 8px;
+    opacity: 100%;
+}
 
 .d-inline{
     margin: 5% 0;
@@ -127,6 +131,10 @@ body {
 	position: relative;
     border-radius: 5px 5px 10px 10px;
     
+}
+
+.pizza:hover, .pizza:active{
+    font-size: 180%;
 }
 
 .img-cardapio h4 {
