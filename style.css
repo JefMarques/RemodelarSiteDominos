@@ -18,7 +18,7 @@ b {
     text-decoration: none;
 }
 
-a:hover {
+header a:hover {
     opacity: 0.8;
     text-shadow: 2px 2px 5px black;
 }
@@ -72,6 +72,10 @@ body {
     height: 100%;
 }
 
+.carousel-item img {
+    border-radius: 8px;
+    opacity: 100%;
+}
 
 .d-inline{
     margin: 5% 0;
@@ -129,6 +133,10 @@ body {
     
 }
 
+.pizza:hover, .pizza:active{
+    font-size: 180%;
+}
+
 .img-cardapio h4 {
     color: rgba(199,33,66,1);
     margin: 1px 0px 0px 0px;
@@ -137,6 +145,7 @@ body {
 .img-cardapio p{
     font-weight: bold;
     color: #fff;
+    font-size: 13px;
 }
 
 .conteudo-formulario, .login{
@@ -148,6 +157,10 @@ body {
 
 form{
     margin: 40px 0px;
+}
+
+form.pecamodal{
+    margin: 20px 0px ;
 }
 
 form label, form legend, span {
@@ -191,12 +204,16 @@ main.login{
 }
 
 main.login h1{
-    margin: 30px 100px;
+    margin: 30px 98px;
+}
+
+main.login h2{
+    margin: 30px 125px;
 }
 
 .social-midia img{
     width: 36px;
-    margin-left: 131px;
+    margin-left: 130px;
 }
 
 .or{
@@ -237,7 +254,7 @@ main .social-media a:first-child img {
     margin-top: 10px;
     margin-left: 5%;
 }
-
+/*
 .barra{
     text-align: center;
 }
@@ -250,4 +267,67 @@ main .social-media a:first-child img {
     background: rgba(255, 255, 255, 0.5);
     margin-left: 80px;
 }
+*/
 
+main .icon1, .icon2{
+    padding-top: 50px;
+}
+
+main .icon1 {
+    margin-left: 31%;
+    text-align: center;
+    display: inline-block;
+}
+
+main .icon1 button{
+    font-size:30px;
+    font-weight: 600;
+}
+
+main .icon2 {
+    margin-left: 10%;
+    text-align: center;
+    display: inline-block;
+}
+
+main .icon2 button{
+    font-size:30px;
+    font-weight: 600;
+}
+
+.divisao{
+    margin-top:25px;
+    margin-left: 246px;
+}
+
+.divisao span::after{
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 830px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.geomapa{
+    margin-top:45px;
+}
+
+.escolha {
+    width: 100%;
+    color:white;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 500;
+    margin-left: 26px;
+}
+
+.mapa-grande {
+    margin-top: 20px;
+    margin-left: 165px;
+    display: inline-block;
+    width: 80%;
+    height:600px;
+    border-radius: 8px;
+    border: 1px solid rgba(28,91,134,1);
+}
