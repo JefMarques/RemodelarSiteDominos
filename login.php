@@ -112,6 +112,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
             <p>
                 <input class="register" type="submit" value="Login">
             </p>
+            <a href="registro.php">Não possui cadastro? Crie sua conta aqui
         </form>
 
         

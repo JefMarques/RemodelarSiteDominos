@@ -1,28 +1,75 @@
 <?php 
 include('conexao.php');
 
-if(isset($_POST['nome']) || isse($_POST['telefone']) || isset($_POST['email']) || isset($_POST['senha'])) {
-    if(strlen($_POST['nome']) == 0) {
-        echo "Preencha seu nome";
-    } else if(strlen($_POST['telefone']) == 0){
-        echo "Preencha seu telefone";
-    } else if(strlen($_POST['email']) == 0){
-        echo "Preencha seu email"; 
-    } else if(strlen($_POST['senha']) == 0){
-        echo "Preencha seu senha";
-    } else {
+/* Class cadastro {
+
+public function cadastrar($nome, $telefone, $email, $senha){
+
+    global $mysqli;
+
+    $sql = $mysqli->prepare("SELECT id_usuario FROM usuarios WHERE email = :e");
+    $sql->bind_param(":e",$email);
+    $sql->execute();
+    if($sql->num_rows() > 0){
+           //num_rows
+        return false; //email ja cadastrado
+    }
+    else {
+
+        $sql = $mysqli->prepare("INSERT INTO usuarios (nome, telefone, email, senha) VALUES (:n, :t, :e, :s)");
+        $sql->bind_param(":n",$nome);
+        $sql->bind_param(":t",$telefone);
+        $sql->bind_param(":e",$email);
+        $sql->bind_param(":s",md5($senha));
+        $sql->execute();
+
+        return true;
+
+    }
+}
+}
 
         $nome = $mysqli->real_escape_string($_POST['nome']);
         $telefone = $mysqli->real_escape_string($_POST['telefone']);
         $email = $mysqli->real_escape_string($_POST['email']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
+        $confirmarSenha = $mysqli->real_escape_string($_POST['confSenha']);
+*/
+if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confirmarSenha)){
 
-        $sql_code = "SELECT * FROM usuarios WHERE nome='$nome' AND telefone='$telefone' AND email='$email' AND senha='$senha' ";
-        $sql_query = $mysqli->query($sql_code) or die ("Falha na execução do código SQL: " . $mysqli->error);
+    if($senha = $confirmarSenha){
 
-        $quantidade = $sql_query->fetch_assoc();
-
+        $sql = $mysqli->prepare("SELECT id_usuario FROM usuarios WHERE email = :e");
+        $sql->bind_param(":e",$email);
+        $sql->execute();
+        if($sql->num_rows() > 0){
+               //num_rows
+            return false; //email ja cadastrado
+        }
+        else {
+    
+            $sql = $mysqli->prepare("INSERT INTO usuarios (nome, telefone, email, senha) VALUES (:n, :t, :e, :s)");
+            $sql->bind_param(":n",$nome);
+            $sql->bind_param(":t",$telefone);
+            $sql->bind_param(":e",$email);
+            $sql->bind_param(":s",md5($senha));
+            $sql->execute();
+    
+            return true;
+            }
+    }       
+    else {
+    echo "senha e confirmar senha não correspondem!";
     }
+
+ 
+    //$sql_code = "INSERT INTO usuarios2 values (nome='$nome', telefone='$telefone', email='$email', senha='$senha') ";
+    //$sql_query = $mysqli->query($sql_code) or die ("Falha na execução do código SQL: " . $mysqli->error);
+
+} else {
+echo "Preencha todos os campos";
+}
+
 ?>
 
 
@@ -60,7 +107,7 @@ if(isset($_POST['nome']) || isse($_POST['telefone']) || isset($_POST['email']) |
           </ul>
   
           <div class="icon">
-            <a href="login.html"><img src="SRC/IMG/perfil.png" alt="Perfil" title="Perfil" width="40" height="40"></a>
+            <a href="login.php"><img src="SRC/IMG/perfil.png" alt="Perfil" title="Perfil" width="40" height="40"></a>
             <a href="http://"><img src="SRC/IMG/carrinho.png" alt="Carrinho" title="Carrinho" width="50" height="40"></a>
           </div>
   
@@ -89,7 +136,7 @@ if(isset($_POST['nome']) || isse($_POST['telefone']) || isset($_POST['email']) |
 
         <form action="" method="POST">
             <p>
-                <label>E-Mail</label>
+                <label>Nome Completo</label>
                     <input type="text" class="input-padrao" id="nome" name="nome">
             </p>
             <p>
@@ -106,7 +153,11 @@ if(isset($_POST['nome']) || isse($_POST['telefone']) || isset($_POST['email']) |
                     <input type="text" class="input-padrao" id="password" name="senha">
             </p>
             <p>
-                <button type="submit">Entrar</button>
+                <label>Confirmar Senha</label>
+                    <input type="text" class="input-padrao" id="password" name="senha">
+            </p>
+            <p>
+                <input class="register" type="submit" value="Registre-se">
             </p>
         </form>
 
