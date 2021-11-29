@@ -1,22 +1,11 @@
 <?php 
-
-
-/*$nome = $_POST['nome'];
-$telefone =  $_POST['telefone'];
-$email =  $_POST['email'];
-$senha =  $_POST['senha'];
-$confSenha =  $_POST['confSenha'];*/
-
-
 // Código que funciona
-/* 
 include('conexao.php');
 
     $nome = $mysqli->real_escape_string($_POST['nome']);
     $telefone = $mysqli->real_escape_string($_POST['telefone']);
     $email = $mysqli->real_escape_string($_POST['email']);
     $senha = $mysqli->real_escape_string(md5($_POST['senha']));
-    $confSenha = $mysqli->real_escape_string(md5($_POST['confSenha']));
 
     $sql_code = "SELECT count(*) as total FROM usuarios2 WHERE nome = '$nome'";
     $sql_query = $mysqli->query($sql_code);
@@ -26,7 +15,7 @@ include('conexao.php');
         $_SESSION['usuario_existe'] = true;
         header('Location: registro.html');
         exit;
-        }
+    
     }       
     $sql = "INSERT INTO usuarios2 (nome, telefone, email, senha) 
     VALUES ('$nome', '$telefone', '$email', '$senha')";
@@ -38,5 +27,4 @@ include('conexao.php');
         }
     mysqli_close($mysqli);
     header('Location: login.php')
-    */
 ?>
