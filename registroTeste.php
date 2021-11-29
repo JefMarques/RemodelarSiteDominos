@@ -1,77 +1,90 @@
-<?php 
-include('conexao.php');
-
-/* Class cadastro {
-
-public function cadastrar($nome, $telefone, $email, $senha){
-
+<?php
+/*
+// Classe Cadastrar
     global $mysqli;
+    // verificcar se já existe o email cadastrado
+    if($mysqli->msgErro == ""){// se esta tudo ok
 
-    $sql = $mysqli->prepare("SELECT id_usuario FROM usuarios WHERE email = :e");
-    $sql->bind_param(":e",$email);
-    $sql->execute();
-    if($sql->num_rows() > 0){
-           //num_rows
-        return false; //email ja cadastrado
-    }
-    else {
-
-        $sql = $mysqli->prepare("INSERT INTO usuarios (nome, telefone, email, senha) VALUES (:n, :t, :e, :s)");
-        $sql->bind_param(":n",$nome);
-        $sql->bind_param(":t",$telefone);
-        $sql->bind_param(":e",$email);
-        $sql->bind_param(":s",md5($senha));
+        $sql = $mysqli->prepare("SELECT id FROM usuarios2 WHERE email = :e");
+        $sql->bind_param(":e", $email);
         $sql->execute();
-
-        return true;
-
+        if($sql->num_rows() > 0){
+            echo "Usuário já cadastrado";
+            return false;
+        } else {
+            //caso nao, cadastrar
+            $sql = $mysqli->prepare("INSERT INTO usuario2 (nome, telefone, email, senha) VALUES ('$nome', '$telefone', '$email', '$senha')");
+            echo "Usuário cadastrado";
+            return true;
+        }
+    } else {
+        echo "Erro: " .$mysqli->msgErro;
     }
-}
-}
+if(isset($_POST['nome'])){
 
         $nome = $mysqli->real_escape_string($_POST['nome']);
         $telefone = $mysqli->real_escape_string($_POST['telefone']);
         $email = $mysqli->real_escape_string($_POST['email']);
-        $senha = $mysqli->real_escape_string($_POST['senha']);
-        $confirmarSenha = $mysqli->real_escape_string($_POST['confSenha']);
-*/
-if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confirmarSenha)){
+        $senha = $mysqli->real_escape_string(md5($_POST['senha']));
+        $confSenha = $mysqli->real_escape_string(md5($_POST['confSenha']));
+        //verificar se esta preenchido
+        if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confirmarSenha)){
 
-        if($senha = $confirmarSenha){
+            if($mysqli->msgErro == ""){// se esta tudo ok
 
-            $sql = $mysqli->prepare("SELECT id_usuario FROM usuarios WHERE email = :e");
-            $sql->bind_param(":e",$email);
-            $sql->execute();
-            if($sql->num_rows() > 0){
-                   //num_rows
-                return false; //email ja cadastrado
-            }
-            else {
-        
-                $sql = $mysqli->prepare("INSERT INTO usuarios (nome, telefone, email, senha) VALUES (:n, :t, :e, :s)");
-                $sql->bind_param(":n",$nome);
-                $sql->bind_param(":t",$telefone);
-                $sql->bind_param(":e",$email);
-                $sql->bind_param(":s",md5($senha));
+                $sql = $mysqli->prepare("SELECT id FROM usuarios2 WHERE email = :e");
+                $sql->bind_param(":e", $email);
                 $sql->execute();
-        
-                return true;
+                if($sql->num_rows() > 0){
+                    echo "Usuário já cadastrado";
+                    return false;
+                } else {
+                    //caso nao, cadastrar
+                    $sql = $mysqli->prepare("INSERT INTO usuario2 (nome, telefone, email, senha) VALUES ('$nome', '$telefone', '$email', '$senha')");
+                    echo "Usuário cadastrado";
+                    return true;
                 }
-        }       
-        else {
-        echo "senha e confirmar senha não correspondem!";
+            } else {
+                echo "Erro: " .$mysqli->msgErro;
+            }
         }
-
-     
-        //$sql_code = "INSERT INTO usuarios2 values (nome='$nome', telefone='$telefone', email='$email', senha='$senha') ";
-        //$sql_query = $mysqli->query($sql_code) or die ("Falha na execução do código SQL: " . $mysqli->error);
-
-} else {
-    echo "Preencha todos os campos";
+      
+}else{
+    echo "Preencha todos os campos!";
     }
 
-?>
+*/
+include('conexao.php');
 
+$nome = $mysqli->real_escape_string($_POST['nome']);
+$telefone = $mysqli->real_escape_string($_POST['telefone']);
+$email = $mysqli->real_escape_string($_POST['email']);
+$senha = $mysqli->real_escape_string(md5($_POST['senha']));
+$confirmarSenha = $mysqli->real_escape_string(md5($_POST['confSenha']));
+
+$sql_code = "SELECT count(*) as total FROM usuarios2 WHERE nome = '$nome'";
+$sql_query = $mysqli->query($sql_code);
+$row = mysqli_fetch_assoc($sql_query);
+
+if($row['total'] == 1) {
+    $_SESSION['usuario_existe'] = true;
+    header('Location: registro.php');
+    exit;
+
+}
+
+$sql = "INSERT INTO usuario2 (nome, telefone, email, senha) VALUES ('$nome', '$telefone', '$email', '$senha')";
+
+if($mysqli->query($sql) === TRUE) {
+    $_SESSION['status_cadastro'] = true;
+}
+
+$mysqli->close();
+
+header('Location: registro.php');
+exit;
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -100,7 +113,7 @@ if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !em
           </div>
   
           <ul class="nav-list">
-            <li><a href="http://" style="text-decoration:none;"><b>Peça On-line</b></a></li>
+            <li><a href="pecaonline.html" style="text-decoration:none;"><b>Peça On-line</b></a></li>
             <li><a href="cardapio.html" style="text-decoration:none;"><b>Cardápio</b></a></li>
             <li><a href="http://" style="text-decoration:none;"><b>Promoção</b></a></li>
             <li><a href="Reserva.html" style="text-decoration:none;"><b>Reserva de Mesa</b></a></li>
@@ -117,7 +130,7 @@ if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !em
 
     <main class="login">
 
-        <h1> Cadastre-se no nosso Site</h1>
+        <h1>Cadastre-se no nosso Site</h1>
         <div class="social-midia">
             <a href="#">
                 <img src="SRC/IMG/facebook.png" alt="Facebook" title="Facebook"/></a>
@@ -128,10 +141,6 @@ if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !em
 
         <div class="or">
             <span>OR</span>
-        </div>
-
-        <div class="barra">
-            <span></span>
         </div>
 
         <form action="" method="POST">
@@ -153,11 +162,12 @@ if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !em
             </p>
             <p>
                 <label>Confirmar Senha</label>
-                    <input type="password" class="input-padrao" id="password" name="confSenha" maxlength="20">
+                    <input type="password" class="input-padrao" id="confPassword" name="confSenha" maxlength="20">
             </p>
             <p>
                 <input class="register" type="submit" value="Registre-se">
             </p>
+
         </form>
 
         

@@ -1,3 +1,10 @@
+<?php 
+
+    include('protect.php');
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,7 +32,7 @@
           </div>
   
           <ul class="nav-list">
-            <li><a href="pecaonline.html" style="text-decoration:none;"><b>Peça On-line</b></a></li>
+            <li><a href="http://" style="text-decoration:none;"><b>Peça On-line</b></a></li>
             <li><a href="cardapio.html" style="text-decoration:none;"><b>Cardápio</b></a></li>
             <li><a href="http://" style="text-decoration:none;"><b>Promoção</b></a></li>
             <li><a href="Reserva.html" style="text-decoration:none;"><b>Reserva de Mesa</b></a></li>
@@ -40,49 +47,11 @@
   
     </header>
 
-    <main class="login">
+    Bem vindo ao Painel, <?php echo $_SESSION['nome']; ?>
 
-        <h1>Crie sua Conta</h1>
-        <div class="social-midia">
-            <a href="#">
-                <img src="SRC/IMG/facebook.png" alt="Facebook" title="Facebook"/></a>
-
-            <a href="#">
-                <img src="SRC/IMG/google.png" alt="google" title="Google" /></a>
-        </div>
-
-        <div class="or">
-            <span>OR</span>
-        </div>
-        <!--
-        <div class="barra">
-            <span></span>
-        </div>
-    -->
-        <h2>Faça seu login</h2>
-
-        <form>
-
-            <label for="email">
-                <span>E-mail</span>
-                <input type="email" class="input-padrao" id="email" name="email" placeholder=" Seuemail@gmail.com" required>
-            </label>
-
-            <label for="password">
-                <span>Senha</span>
-                <input type="password" class="input-padrao" id="password" name="password" placeholder=" Senha" required>
-            </label>
-
-            <input class="register" type="submit" value="Login">
-
-        </form>
-
-        
-
-    </main>
+    <p>
+        <a href="logout.php">Sair</a>
+    </p>
     
-
-    
-
 </body>
 </html>
