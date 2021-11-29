@@ -33,7 +33,6 @@
   
           <div class="icon">
             <a href="login.php"><img src="SRC/IMG/perfil.png" alt="Perfil" title="Perfil" width="40" height="40"></a>
-            <a href="http://"><img src="SRC/IMG/carrinho.png" alt="Carrinho" title="Carrinho" width="50" height="40"></a>
           </div>
   
         </nav>
@@ -42,7 +41,7 @@
 
     <main class="login">
 
-        <h1> Cadastre-se no nosso Site</h1>
+        <h1 style="margin: 30px 130px;">Cadastre-se</h1>
         <div class="social-midia">
             <a href="#">
                 <img src="SRC/IMG/facebook.png" alt="Facebook" title="Facebook"/></a>
@@ -58,23 +57,19 @@
         <form action="cadastro.php" method="POST">
             <p>
                 <label>Nome Completo</label>
-                    <input type="text" class="input-padrao" id="nome" name="nome" maxlength="50">
+                    <input type="text" class="input-padrao" id="nome" name="nome" maxlength="50" placeholder="Nome Completo">
             </p>
             <p>
                 <label>Telefone</label>
-                    <input type="text" class="input-padrao" id="telefone" name="telefone" maxlength="11">
+                    <input type="text" class="input-padrao" id="telefone" name="telefone" maxlength="11" placeholder="00000000">
             </p>
             <p>
                 <label>E-Mail</label>
-                    <input type="text" class="input-padrao" id="email" name="email" maxlength="40">
+                    <input type="text" class="input-padrao" id="email" name="email" maxlength="40" placeholder="exemplo@gmail.com">
             </p>
             <p>
                 <label>Senha</label>
-                    <input type="password" class="input-padrao" id="password" name="senha" maxlength="20">
-            </p>
-            <p>
-                <label>Confirmar Senha</label>
-                    <input type="password" class="input-padrao" id="password2" name="confSenha" maxlength="20">
+                    <input type="password" class="input-padrao" id="password" name="senha" maxlength="20" placeholder="Senha">
             </p>
             <p>
                 <input class="register" type="submit" value="Registre-se">

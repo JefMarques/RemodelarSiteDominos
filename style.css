@@ -204,7 +204,7 @@ main.login{
 }
 
 main.login h1{
-    margin: 30px 98px;
+    margin: 30px 140px;
 }
 
 main.login h2{
@@ -332,3 +332,35 @@ main .icon2 button{
     border: 1px solid rgba(28,91,134,1);
 }
 
+#criaConta{
+    margin-left: 80px;
+}
+
+div.msg-erro{
+    margin-left: 550px;
+}
+
+.alert {
+    margin-left: 26%;
+    align-items: center;
+    width: 23%;
+    text-align: center;
+    padding: 20px;
+    background-color: #8d2e27;
+    color: white;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
