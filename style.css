@@ -74,7 +74,7 @@ body {
 
 .carousel-item img {
     border-radius: 8px;
-    opacity: 90%;
+    opacity: 100%;
 }
 
 .d-inline{
@@ -88,10 +88,6 @@ body {
     margin: 0 auto;
     width: 1010px;
     position: relative;
-}
-
-.promocao1{
-    margin-top: 50px;
 }
 
 .promocao2{
@@ -336,10 +332,3 @@ main .icon2 button{
     border: 1px solid rgba(28,91,134,1);
 }
 
-.promocao{
-    text-align: center;
-}
-
-.icon{
-    margin-right: 20px;
-}
